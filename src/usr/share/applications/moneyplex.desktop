@@ -1,0 +1,8 @@
+[Desktop Entry]
+Exec=/usr/lib/moneyplex/download_and_run_moneyplex_installer
+Icon=moneyplex
+Name=Moneyplex
+Type=Application
+X-KDE-SubstituteUID=false
+Categories=Office
+Comment=Install Moneyplex Homebanking Software

@@ -1,0 +1,10 @@
+Package: moneyplex
+Version: 24
+Priority: optional
+Section: misc
+Architecture: all
+Maintainer: Matrica Support <support@matrica.de>
+Depends: xterm, wget, zenity, libgtk2.0-0
+Description: Homebanking Software für Deutschland
+ Eine fortgeschrittene Homebanking-Software welche
+ die meisten Banken in Deutschland mit HBCI und FinTS unterstützt.

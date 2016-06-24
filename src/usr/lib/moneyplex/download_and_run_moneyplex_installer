@@ -1,0 +1,16 @@
+#!/bin/bash
+BITS="$([[ "$(uname -m)" == *64 ]] && echo 64)"
+DOWNLOAD_URL=http://www.matrica.com/download/linux/moneyplex_setup$BITS.zip
+
+function die {
+    zenity --error --icon-name moneyplex --text "$*"
+    exit 1
+}
+
+zenity --info --text "Es wird jetzt der aktuelle Moneyplex Installer heruntergeladen und ausgeführt.\nBitte folgen Sie dabei der graphischen Installationsanleitung." --icon-name moneyplex || exit 0
+
+WORK=$(mktemp -d -t "${0##*/}.XXXXXXXXXXX")
+trap "rm -Rf $WORK" 0
+xterm -title "Downloading Moneyplex ..." -geometry 100x10 -e wget -O $WORK/download.zip "$DOWNLOAD_URL" || die "Could not download $DOWNLOAD_URL"
+unzip $WORK/download.zip -d $WORK || die "Could not unzip installer"
+$WORK/moneyplex_setup$BITS || die "Could not run installer"
